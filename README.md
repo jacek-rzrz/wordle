@@ -44,7 +44,7 @@ Word count by character
 Characters **S, E, A, O, R** are the most frequent ones. They are all
 contained by each one of these words:
 
-AEROS, AROSE, SOARE
+    AEROS, AROSE, SOARE
 
 With any of the above words as the first guess, there is a 96% chance
 that at least a single character from the day’s word will be hit, 69%
@@ -57,4 +57,4 @@ Characters **I, L, T, N, U** come as the next group in terms of
 frequency. It’s possible to form a 5-character word from all of them
 too:
 
-UNLIT, UNTIL
+    UNLIT, UNTIL

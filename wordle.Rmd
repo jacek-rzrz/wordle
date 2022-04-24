@@ -78,7 +78,9 @@ coverage_of_chars <- function(cs, min.matches = 5) {
 Characters **`r top_chars(1, 5)`** are the most frequent ones.
 They are all contained by each one of these words:
 
+```
 `r words_from_chars(top_chars(1, 5))`
+```
 
 With any of the above words as the first guess,
 there is a `r coverage_of_chars(top_chars(1, 5), min.matches = 1)` chance that at least a single character from
@@ -89,5 +91,6 @@ and `r coverage_of_chars(top_chars(1, 5), min.matches = 3)` chance for hitting a
 Characters **`r top_chars(6, 10)`** come as the next group in terms of frequency.
 It's possible to form a 5-character word from all of them too:
 
-
+```
 `r words_from_chars(top_chars(6, 10))`
+```
