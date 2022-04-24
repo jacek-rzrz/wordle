@@ -94,3 +94,8 @@ It's possible to form a 5-character word from all of them too:
 ```
 `r words_from_chars(top_chars(6, 10))`
 ```
+
+At this point two characters are known in `r coverage_of_chars(top_chars(1, 10), min.matches = 2)` of cases.
+There is a `r coverage_of_chars(top_chars(1, 10), min.matches = 3)` chance that at least three letters 
+have been hit and `r coverage_of_chars(top_chars(1, 10), min.matches = 4)` likelihood of having unveiled
+four letters.

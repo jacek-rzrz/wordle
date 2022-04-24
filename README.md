@@ -58,3 +58,7 @@ frequency. It’s possible to form a 5-character word from all of them
 too:
 
     UNLIT, UNTIL
+
+At this point two characters are known in 96% of cases. There is a 75%
+chance that at least three letters have been hit and 31% likelihood of
+having unveiled four letters.
