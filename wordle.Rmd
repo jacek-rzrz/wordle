@@ -1,0 +1,93 @@
+---
+title: "Jacek's Wordle Heuristics"
+author: "Jacek Rz"
+date: "`r Sys.Date()`"
+output:
+  md_document:
+    variant: gfm
+knit: (
+  function(inputFile, encoding) { 
+    rmarkdown::render( 
+      input       = inputFile, 
+      encoding    = encoding,     
+      output_file = 'README')})
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(tidyverse)
+library(testit)
+library(knitr)
+```
+
+# Jacek's Wordle Heuristics
+Quick analysis of Wordle's dictionary to find out
+what are good words to start with and quickly
+hit as many target word characters as possible.
+
+```{r words}
+words <- read_csv('words.csv', col_names = 'word', col_types = 'c') %>%
+  mutate(word = toupper(word))
+
+words.total <- length(words$word)
+```
+
+## Character distribution
+There are `r words.total` words in the dictionary.
+This table shows how many words contain each letter:
+```{r chars}
+chars = words %>% 
+  mutate(char = strsplit(word, '')) %>% 
+  unnest_longer(char) %>% 
+  unique()
+
+char_freqs <- chars %>% 
+  group_by(char) %>%
+  summarise(n_words = n()) %>% 
+  arrange(desc(n_words))
+
+kable(char_freqs, caption = 'Word count by character')
+
+```
+
+
+## First guess
+```{r first_word}
+top_chars <- function(min.inclusive, max.inclusive) {
+  char_freqs$char[min.inclusive:max.inclusive]
+}
+
+words_from_chars <- function(cs, min.matches = 5) {
+  chars %>% 
+    filter(char %in% cs) %>% 
+    group_by(word) %>% 
+    summarise(n = n()) %>% 
+    filter(n >= min.matches) %>% 
+    .$word
+}
+
+coverage_of_chars <- function(cs, min.matches = 5) {
+  n <- words_from_chars(cs, min.matches = min.matches) %>% 
+    length()
+  frac <- n / words.total
+  paste(round(frac * 100), '%', sep='')
+}
+```
+
+Characters **`r top_chars(1, 5)`** are the most frequent ones.
+They are all contained by each one of these words:
+
+`r words_from_chars(top_chars(1, 5))`
+
+With any of the above words as the first guess,
+there is a `r coverage_of_chars(top_chars(1, 5), min.matches = 1)` chance that at least a single character from
+the day's word will be hit, `r coverage_of_chars(top_chars(1, 5), min.matches = 2)` chance for unveiling two characters,
+and `r coverage_of_chars(top_chars(1, 5), min.matches = 3)` chance for hitting as many as three.
+
+## Second guess
+Characters **`r top_chars(6, 10)`** come as the next group in terms of frequency.
+It's possible to form a 5-character word from all of them too:
+
+
+`r words_from_chars(top_chars(6, 10))`
