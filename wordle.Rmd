@@ -99,3 +99,19 @@ At this point two characters are known in **`r coverage_of_chars(top_chars(1, 10
 There is a **`r coverage_of_chars(top_chars(1, 10), min.matches = 3)`** chance that at least three letters
 have been hit and **`r coverage_of_chars(top_chars(1, 10), min.matches = 4)`** likelihood of having unveiled
 four letters.
+
+## Third guess?!
+Still stuck after the first two blind guesses? This is the next group of characters based on frequency:
+**`r top_chars(11, 15)`**
+
+It's not possible to form a word from just these characters.
+In fact, it's not possible to create a word from any five of the so far unused characters.
+So let's find words that introduce four new letters:
+
+```
+`r words_from_chars(top_chars(11, 15), min.matches = 4)`
+```
+
+After these three guesses, we know at least three characters of the day's word
+in **`r coverage_of_chars(top_chars(1, 14), min.matches = 3)`** of games.
+That's not bad, is it?

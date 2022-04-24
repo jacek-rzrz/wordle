@@ -46,10 +46,10 @@ contained by each one of these words:
 
     AEROS, AROSE, SOARE
 
-With any of the above words as the first guess, there is a 96% chance
-that at least a single character from the day’s word will be hit, 69%
-chance for unveiling two characters, and 24% chance for hitting as many
-as three.
+With any of the above words as the first guess, there is a **96%**
+chance that at least a single character from the day’s word will be hit,
+**69%** chance for unveiling two characters, and **24%** chance for
+hitting as many as three.
 
 ## Second guess
 
@@ -59,6 +59,20 @@ too:
 
     UNLIT, UNTIL
 
-At this point two characters are known in 96% of cases. There is a 75%
-chance that at least three letters have been hit and 31% likelihood of
-having unveiled four letters.
+At this point two characters are known in **96%** of cases. There is a
+**75%** chance that at least three letters have been hit and **31%**
+likelihood of having unveiled four letters.
+
+## Third guess?!
+
+Still stuck after the first two blind guesses? This is the next group of
+characters based on frequency: **D, Y, C, P, M**
+
+It’s not possible to form a word from just these characters. In fact,
+it’s not possible to create a word from any five of the so far unused
+characters. So let’s find words that introduce four new letters:
+
+    CAMPY, DAMPY, DUMPY
+
+After these three guesses, we know at least three characters of the
+day’s word in **92%** of games. That’s not bad, is it?
