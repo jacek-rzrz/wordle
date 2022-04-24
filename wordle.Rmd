@@ -83,9 +83,9 @@ They are all contained by each one of these words:
 ```
 
 With any of the above words as the first guess,
-there is a `r coverage_of_chars(top_chars(1, 5), min.matches = 1)` chance that at least a single character from
-the day's word will be hit, `r coverage_of_chars(top_chars(1, 5), min.matches = 2)` chance for unveiling two characters,
-and `r coverage_of_chars(top_chars(1, 5), min.matches = 3)` chance for hitting as many as three.
+there is a **`r coverage_of_chars(top_chars(1, 5), min.matches = 1)`** chance that at least a single character from
+the day's word will be hit, **`r coverage_of_chars(top_chars(1, 5), min.matches = 2)`** chance for unveiling two characters,
+and **`r coverage_of_chars(top_chars(1, 5), min.matches = 3)`** chance for hitting as many as three.
 
 ## Second guess
 Characters **`r top_chars(6, 10)`** come as the next group in terms of frequency.
@@ -95,7 +95,7 @@ It's possible to form a 5-character word from all of them too:
 `r words_from_chars(top_chars(6, 10))`
 ```
 
-At this point two characters are known in `r coverage_of_chars(top_chars(1, 10), min.matches = 2)` of cases.
-There is a `r coverage_of_chars(top_chars(1, 10), min.matches = 3)` chance that at least three letters 
-have been hit and `r coverage_of_chars(top_chars(1, 10), min.matches = 4)` likelihood of having unveiled
+At this point two characters are known in **`r coverage_of_chars(top_chars(1, 10), min.matches = 2)`** of cases.
+There is a **`r coverage_of_chars(top_chars(1, 10), min.matches = 3)`** chance that at least three letters
+have been hit and **`r coverage_of_chars(top_chars(1, 10), min.matches = 4)`** likelihood of having unveiled
 four letters.
